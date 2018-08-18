@@ -1,6 +1,5 @@
 package ch.tbmelabs.tv.actuatorendpointssecurityutils.configuration;
 
-import ch.tbmelabs.tv.shared.constants.security.ClientUserRole;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,6 +21,7 @@ public class ActuatorEndpointSecurityConfiguration extends WebSecurityConfigurer
 
   private String actuatorUserName;
   private String actuatorUserPassword;
+  private String actuatorUserRole;
 
   public ActuatorEndpointSecurityConfiguration(ObjectPostProcessor<Object> objectPostProcessor,
       ApplicationProperties applicationProperties) {
@@ -31,14 +31,15 @@ public class ActuatorEndpointSecurityConfiguration extends WebSecurityConfigurer
         applicationProperties.getEureka().getInstance().getMetadataMap().getUser().getName();
     this.actuatorUserPassword =
         applicationProperties.getEureka().getInstance().getMetadataMap().getUser().getPassword();
+    this.actuatorUserRole =
+        applicationProperties.getEureka().getInstance().getMetadataMap().getUser().getRole();
   }
 
   @Override
   protected AuthenticationManager authenticationManager() throws Exception {
     AuthenticationManagerBuilder builder = new AuthenticationManagerBuilder(objectPostProcessor);
     builder.inMemoryAuthentication().passwordEncoder(PASSWORD_ENCODER).withUser(actuatorUserName)
-        .password(PASSWORD_ENCODER.encode(actuatorUserPassword))
-        .roles(ClientUserRole.ACTUATOR_ROLE);
+        .password(PASSWORD_ENCODER.encode(actuatorUserPassword)).roles(actuatorUserRole);
     return builder.build();
   }
 
@@ -48,7 +49,7 @@ public class ActuatorEndpointSecurityConfiguration extends WebSecurityConfigurer
     http
 
         .antMatcher("/actuator/**").authorizeRequests()
-          .antMatchers("/actuator/**").hasRole(ClientUserRole.ACTUATOR_ROLE)
+          .antMatchers("/actuator/**").hasRole(actuatorUserRole)
 
         .and().httpBasic();
     // @formatter:on
