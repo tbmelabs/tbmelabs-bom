@@ -1,5 +1,6 @@
 package ch.tbmelabs.tv.actuatorendpointssecurityutils.configuration;
 
+import javax.annotation.PostConstruct;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -9,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.util.Assert;
 
 @Order(2)
 @Configuration
@@ -33,6 +35,13 @@ public class ActuatorEndpointSecurityConfiguration extends WebSecurityConfigurer
         applicationProperties.getEureka().getInstance().getMetadataMap().getUser().getPassword();
     this.actuatorUserRole =
         applicationProperties.getEureka().getInstance().getMetadataMap().getUser().getRole();
+  }
+
+  @PostConstruct
+  public void postConstruct() {
+    Assert.notNull(actuatorUserName, "You must specify an actuator user name!");
+    Assert.notNull(actuatorUserPassword, "You must specify an actuator user password!");
+    Assert.notNull(actuatorUserRole, "You must specify an actuator user role!");
   }
 
   @Override
