@@ -53,8 +53,13 @@
     <org.projectlombok.lombok.version>1.18.2</org.projectlombok.lombok.version>
 
     <!-- Plugin configuration -->
-    <org.sonatype.plugins.nexus-staging-maven-plugin.version>1.6.8</org.sonatype.plugins.nexus-staging-maven-plugin.version>
+    <org.apache.maven.plugins.maven-failsafe-plugin.version>2.22.0</org.apache.maven.plugins.maven-failsafe-plugin.version>
+    <org.apache.maven.plugins.maven-javadoc-plugin.version>3.0.1</org.apache.maven.plugins.maven-javadoc-plugin.version>
     <org.apache.maven.plugins.maven-gpg-plugin.version>1.6</org.apache.maven.plugins.maven-gpg-plugin.version>
+    <org.apache.maven.plugins.maven-source-plugin.version>3.0.1</org.apache.maven.plugins.maven-source-plugin.version>
+    <org.apache.maven.plugins.maven-surefire-plugin.version>2.22.0</org.apache.maven.plugins.maven-surefire-plugin.version>
+    <org.codehaus.mojo.versions-maven-plugin.version>2.5</org.codehaus.mojo.versions-maven-plugin.version>
+    <org.sonatype.plugins.nexus-staging-maven-plugin.version>1.6.8</org.sonatype.plugins.nexus-staging-maven-plugin.version>
   </properties>
 
   <dependencyManagement>
@@ -120,6 +125,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
+        <version>${org.codehaus.mojo.versions-maven-plugin.version}</version>
       </plugin>
 
       <!-- https://mvnrepository.com/artifact/org.sonatype.plugins/nexus-staging-maven-plugin -->
@@ -141,6 +147,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
+        <version>${org.apache.maven.plugins.maven-surefire-plugin.version}</version>
 
         <executions>
           <execution>
@@ -169,6 +176,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
+        <version>${org.apache.maven.plugins.maven-failsafe-plugin.version}</version>
 
         <executions>
           <execution>
@@ -202,6 +210,7 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
             <version>${org.apache.maven.plugins.maven-gpg-plugin.version}</version>
+
             <executions>
               <execution>
                 <id>sign-artifacts</id>
@@ -231,6 +240,8 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
+            <version>${org.apache.maven.plugins.maven-source-plugin.version}</version>
+
             <executions>
               <execution>
                 <id>attach-sources</id>
@@ -246,6 +257,8 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
+            <version>${org.apache.maven.plugins.maven-javadoc-plugin.version}</version>
+
             <executions>
               <execution>
                 <id>attach-javadocs</id>
