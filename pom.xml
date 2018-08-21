@@ -4,13 +4,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.tbmelabs</groupId>
-  <artifactId>actuator-endpoints-security-utils</artifactId>
+  <artifactId>bom</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
 
-  <name>Actuator Endpoints Security Utils</name>
-  <description>Utilities to secure actuator endpoints.</description>
-  <url>https://github.com/tbmelabs/actuator-endpoints-security-utils</url>
+  <name>TBME Labs | Bom</name>
+  <description>TBME Labs specific dependency management and plugin configurations.</description>
+  <url>https://github.com/tbmelabs/tbmelabs-bom</url>
 
   <licenses>
     <license>
@@ -21,9 +21,9 @@
   </licenses>
 
   <scm>
-    <url>https://github.com/tbmelabs/actuator-endpoints-security-utils</url>
-    <connection>scm:git:git://github.com/tbmelabs/actuator-endpoints-security-utils.git</connection>
-    <developerConnection>scm:git:git@github.com:tbmelabs/actuator-endpoints-security-utils.git</developerConnection>
+    <url>https://github.com/tbmelabs/tbmelabs-bom</url>
+    <connection>scm:git:git://github.com/tbmelabs/tbmelabs-bom.git</connection>
+    <developerConnection>scm:git:git@github.com:tbmelabs/tbmelabs-bom.git</developerConnection>
   </scm>
 
   <developers>
@@ -74,47 +74,6 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
-  <dependencies>
-    <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-security -->
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-security</artifactId>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>${org.projectlombok.lombok.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <version>${spring.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <!-- Do not remove this! Mockito < 2.0 is required. -->
-      <version>${org.mockito.mockito-core.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-test -->
-    <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-test</artifactId>
-      <version>${spring.security.version}</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
 
   <build>
     <defaultGoal>clean install</defaultGoal>
