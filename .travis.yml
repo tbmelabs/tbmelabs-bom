@@ -41,19 +41,12 @@ env:
     - secure: "BQTqIdesk0ZadjsRTNdo8X7zShacu63kFJV85lkOmEeT1SUVNWog4rE5NngGEmYGKFlN4ijznm01wNBMJ6ynBMDeSFmX4wnQeTcwzEVwBz+GZcJlkRoANRiyZTRnv7L1zmt8+tqhdh7p/nO8HVHlgxLg4WVTXGxaZsfasN8tGEz8kE3JdhkSt4ibIYx6Qjmxlr6XaMS1mVRp6GxQbQIi/QoQdhxce477qmr2aduGI4tkywAAkuad5nez4EVmkI/4y78otZU7n1s1RPDdBQrteBGG3dzlyBY9iW90O43d8cZShjhe1zWtjFgTE3mgBerM82jFu2e8VToqNb0PDIdleIq+G40icLUkcMJ9gD0KuxOWUpnBOx8/GE37/HqaQR5TwarsweO2RhFVssTCO62X9bR+UWYhDCwQuTM3lvqfccJ1Uzo9u5fb35zgAUK02y/vwutZ8zwn/apmihf8lK2BQo7LXJtPKuYB3HtL8xqFufEQ3EiYLWjPPWr3LnqYitmchH2Fr7QDM4KroMPYzMvCC5Ojk0jZBpvB7zX/e42c/YP20GUCJNFLeZyeKKUR7RsoqORacHvUdIMW5lKs20Bqb4Cq5bdDmnaWtfZHtjn+0Ee80CcXPs0G7boXyuErT0NW84ov8qJ+/Uo5tfG4Mf5LdfS82O4h9QsbzVAmVBud9Dg="
     # ^^ GPG_PASSPHRASE
 
-addons:
-  sonarcloud:
-    organization: "tbmelabs-github"
-    token:
-      secure: ${SONAR_TOKEN}
-
 before_script:
   - git clone https://${GITHUB_USERNAME}:${GITHUB_ACCESS_TOKEN}@github.com/mirioeggmann/tbmelabs-deploy-certificates.git
   - gpg --fast-import tbmelabs-deploy-certificates/tbmelabs-deploy-key.asc
   - cp .travis.settings.xml $HOME/.m2/settings.xml
 
 script:
-  # - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
   - mvn clean verify
 
 after_script:
@@ -63,4 +56,3 @@ cache:
   directories:
     - "$HOME/.cache"
     - '$HOME/.m2/repository'
-    - '$HOME/.sonar/cache'
