@@ -16,10 +16,6 @@ branches:
 
 deploy:
   - provider: script
-    script: bash scripts/deploy.sh
-    on:
-      branch: master
-  - provider: script
     script: bash scripts/deploy-snapshot.sh
     on:
       branch: development
