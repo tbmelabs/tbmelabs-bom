@@ -79,11 +79,11 @@
   <dependencies>
     <!-- DOTO: Update on release -->
     <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/actuator-endpoints-security-utils/ -->
-    <dependency>
-      <groupId>ch.tbmelabs</groupId>
-      <artifactId>actuator-endpoints-secrutiy-utils</artifactId>
-      <version>${ch.tbmelabs.version}</version>
-    </dependency>
+    <!-- <dependency> -->
+    <!-- <groupId>ch.tbmelabs</groupId> -->
+    <!-- <artifactId>actuator-endpoints-secrutiy-utils</artifactId> -->
+    <!-- <version>${ch.tbmelabs.version}</version> -->
+    <!-- </dependency> -->
 
     <!-- DOTO: Update on release -->
     <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/tv/constants/ -->
