@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.tbmelabs</groupId>
   <artifactId>bom</artifactId>
-  <version>${ch.tbmelabs.version}</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>TBME Labs | Bom</name>
