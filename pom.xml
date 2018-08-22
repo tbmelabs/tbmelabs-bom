@@ -9,7 +9,7 @@
   <packaging>pom</packaging>
 
   <name>TBME Labs | Bom</name>
-  <description>TBME Labs specific dependency management and plugin configurations.</description>
+  <description>TBME Labs specific dependency management.</description>
   <url>https://github.com/tbmelabs/tbmelabs-bom</url>
 
   <licenses>
