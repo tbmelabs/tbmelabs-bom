@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.tbmelabs</groupId>
   <artifactId>bom</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>${ch.tbmelabs.version}</version>
   <packaging>pom</packaging>
 
   <name>TBME Labs | Bom</name>
@@ -38,19 +38,11 @@
   <properties>
     <!-- General configuration -->
     <buildNumber>${maven.build.timestamp}</buildNumber>
-    <java.version>1.8</java.version>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <!-- Spring dependency management -->
-    <spring.version>2.0.3.RELEASE</spring.version>
-    <spring.security.version>5.0.7.RELEASE</spring.security.version>
-
-    <!-- Dependency configuration -->
-    <org.mockito.mockito-core.version>2.9.0</org.mockito.mockito-core.version>
-    <org.projectlombok.lombok.version>1.18.2</org.projectlombok.lombok.version>
+    <!-- TBME Labs specific configuration -->
+    <ch.tbmelabs.version>1.0.0-SNAPSHOT</ch.tbmelabs.version>
+    <ch.tbmelabs.tv.version>1.0.0-SNAPSHOT</ch.tbmelabs.tv.version>
 
     <!-- Plugin configuration -->
     <org.apache.maven.plugins.maven-failsafe-plugin.version>2.22.0</org.apache.maven.plugins.maven-failsafe-plugin.version>
@@ -64,6 +56,15 @@
 
   <dependencyManagement>
     <dependencies>
+      <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>2.0.4.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
       <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
       <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -74,6 +75,24 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <dependencies>
+    <!-- DOTO: Update on release -->
+    <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/actuator-endpoints-security-utils/ -->
+    <dependency>
+      <groupId>ch.tbmelabs</groupId>
+      <artifactId>actuator-endpoints-secrutiy-utils</artifactId>
+      <version>${ch.tbmelabs.version}</version>
+    </dependency>
+
+    <!-- DOTO: Update on release -->
+    <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/tv/constants/ -->
+    <dependency>
+      <groupId>ch.tbmelabs.tv</groupId>
+      <artifactId>constants</artifactId>
+      <version>${ch.tbmelabs.tv.version}</version>
+    </dependency>
+  </dependencies>
 
   <build>
     <defaultGoal>clean install</defaultGoal>
@@ -100,60 +119,6 @@
           <nexusUrl>https://oss.sonatype.org/</nexusUrl>
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
-      </plugin>
-
-      <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${org.apache.maven.plugins.maven-surefire-plugin.version}</version>
-
-        <executions>
-          <execution>
-            <id>unit-tests</id>
-
-            <phase>test</phase>
-
-            <goals>
-              <goal>test</goal>
-            </goals>
-
-            <configuration>
-              <includes>
-                <include>**/*Test.java</include>
-              </includes>
-
-              <excludes>
-                <exclude>**/*IntTest.java</exclude>
-              </excludes>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-failsafe-plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-failsafe-plugin</artifactId>
-        <version>${org.apache.maven.plugins.maven-failsafe-plugin.version}</version>
-
-        <executions>
-          <execution>
-            <id>integration-tests</id>
-
-            <phase>integration-test</phase>
-
-            <goals>
-              <goal>integration-test</goal>
-            </goals>
-
-            <configuration>
-              <includes>
-                <include>**/*IntTest.java</include>
-              </includes>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
@@ -232,6 +197,22 @@
       </build>
     </profile>
   </profiles>
+
+  <repositories>
+    <repository>
+      <id>ossrh-snapshot</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </repositories>
 
   <distributionManagement>
     <snapshotRepository>
