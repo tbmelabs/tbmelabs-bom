@@ -1,228 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>ch.tbmelabs</groupId>
-  <artifactId>bom</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>bom</artifactId>
+    <packaging>pom</packaging>
 
-  <name>TBME Labs | Bom</name>
-  <description>TBME Labs specific dependency management.</description>
-  <url>https://github.com/tbmelabs/tbmelabs-bom</url>
-
-  <licenses>
-    <license>
-      <name>MIT License</name>
-      <url>http://www.opensource.org/licenses/mit-license.php</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-
-  <scm>
+    <name>TBME Labs | Bom</name>
+    <description>TBME Labs specific dependency management.</description>
     <url>https://github.com/tbmelabs/tbmelabs-bom</url>
-    <connection>scm:git:git://github.com/tbmelabs/tbmelabs-bom.git</connection>
-    <developerConnection>scm:git:git@github.com:tbmelabs/tbmelabs-bom.git</developerConnection>
-  </scm>
 
-  <developers>
-    <developer>
-      <name>TBME Labs</name>
-      <email>info@tbmelabs.ch</email>
-      <organization>TBME Labs</organization>
-      <organizationUrl>tbmelabs.ch</organizationUrl>
-    </developer>
-  </developers>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-  <properties>
-    <!-- General configuration -->
-    <buildNumber>${maven.build.timestamp}</buildNumber>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <scm>
+        <url>https://github.com/tbmelabs/tbmelabs-bom</url>
+        <connection>scm:git:git://github.com/tbmelabs/tbmelabs-bom.git</connection>
+        <developerConnection>scm:git:git@github.com:tbmelabs/tbmelabs-bom.git</developerConnection>
+    </scm>
 
-    <!-- TBME Labs specific configuration -->
-    <ch.tbmelabs.version>1.0.0-SNAPSHOT</ch.tbmelabs.version>
-    <ch.tbmelabs.tv.version>1.0.0-SNAPSHOT</ch.tbmelabs.tv.version>
+    <developers>
+        <developer>
+            <name>TBME Labs</name>
+            <email>info@tbmelabs.ch</email>
+            <organization>TBME Labs</organization>
+            <organizationUrl>tbmelabs.ch</organizationUrl>
+        </developer>
+    </developers>
 
-    <!-- Plugin configuration -->
-    <org.apache.maven.plugins.maven-failsafe-plugin.version>2.22.0</org.apache.maven.plugins.maven-failsafe-plugin.version>
-    <org.apache.maven.plugins.maven-javadoc-plugin.version>3.0.1</org.apache.maven.plugins.maven-javadoc-plugin.version>
-    <org.apache.maven.plugins.maven-gpg-plugin.version>1.6</org.apache.maven.plugins.maven-gpg-plugin.version>
-    <org.apache.maven.plugins.maven-source-plugin.version>3.0.1</org.apache.maven.plugins.maven-source-plugin.version>
-    <org.apache.maven.plugins.maven-surefire-plugin.version>2.22.0</org.apache.maven.plugins.maven-surefire-plugin.version>
-    <org.codehaus.mojo.versions-maven-plugin.version>2.5</org.codehaus.mojo.versions-maven-plugin.version>
-    <org.sonatype.plugins.nexus-staging-maven-plugin.version>1.6.8</org.sonatype.plugins.nexus-staging-maven-plugin.version>
-  </properties>
+    <parent>
+        <!-- DOTO: Update on release -->
+        <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/actuator-endpoints-security-utils/ -->
+        <groupId>ch.tbmelabs</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
 
-  <dependencyManagement>
+    <properties>
+        <!-- TBME Labs specific configuration -->
+        <ch.tbmelabs.version>1.0.0-SNAPSHOT</ch.tbmelabs.version>
+        <ch.tbmelabs.tv.version>1.0.0-SNAPSHOT</ch.tbmelabs.tv.version>
+    </properties>
+
     <dependencies>
-      <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>2.0.4.RELEASE</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+        <!-- DOTO: Update on release -->
+        <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/actuator-endpoints-security-utils/ -->
+        <dependency>
+            <groupId>ch.tbmelabs</groupId>
+            <artifactId>actuator-endpoints-security-utils</artifactId>
+            <version>${ch.tbmelabs.version}</version>
+        </dependency>
 
-      <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-dependencies</artifactId>
-        <version>Finchley.RELEASE</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+        <!-- DOTO: Update on release -->
+        <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/tv/constants/ -->
+        <dependency>
+            <groupId>ch.tbmelabs.tv</groupId>
+            <artifactId>constants</artifactId>
+            <version>${ch.tbmelabs.tv.version}</version>
+        </dependency>
     </dependencies>
-  </dependencyManagement>
 
-  <dependencies>
-    <!-- DOTO: Update on release -->
-    <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/actuator-endpoints-security-utils/ -->
-    <!-- <dependency> -->
-    <!-- <groupId>ch.tbmelabs</groupId> -->
-    <!-- <artifactId>actuator-endpoints-secrutiy-utils</artifactId> -->
-    <!-- <version>${ch.tbmelabs.version}</version> -->
-    <!-- </dependency> -->
+    <build>
+        <defaultGoal>clean install</defaultGoal>
+        <finalName>${project.groupId}.${project.artifactId}-${project.version}</finalName>
 
-    <!-- DOTO: Update on release -->
-    <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/tv/constants/ -->
-    <dependency>
-      <groupId>ch.tbmelabs.tv</groupId>
-      <artifactId>constants</artifactId>
-      <version>${ch.tbmelabs.tv.version}</version>
-    </dependency>
-  </dependencies>
-
-  <build>
-    <defaultGoal>clean install</defaultGoal>
-    <finalName>${project.groupId}.${project.artifactId}-${project.version}</finalName>
-
-    <plugins>
-      <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/versions-maven-plugin -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>versions-maven-plugin</artifactId>
-        <version>${org.codehaus.mojo.versions-maven-plugin.version}</version>
-      </plugin>
-
-      <!-- https://mvnrepository.com/artifact/org.sonatype.plugins/nexus-staging-maven-plugin -->
-      <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>${org.sonatype.plugins.nexus-staging-maven-plugin.version}</version>
-
-        <extensions>true</extensions>
-
-        <configuration>
-          <serverId>ossrh</serverId>
-          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>true</autoReleaseAfterClose>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-
-  <profiles>
-    <profile>
-      <id>sign</id>
-
-      <build>
         <plugins>
-          <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>${org.apache.maven.plugins.maven-gpg-plugin.version}</version>
+            <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/versions-maven-plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${org.codehaus.mojo.versions-maven-plugin.version}</version>
+            </plugin>
 
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
+            <!-- https://mvnrepository.com/artifact/org.sonatype.plugins/nexus-staging-maven-plugin -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>${org.sonatype.plugins.nexus-staging-maven-plugin.version}</version>
 
-                <phase>verify</phase>
+                <extensions>true</extensions>
 
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
         </plugins>
-      </build>
-    </profile>
+    </build>
 
-    <profile>
-      <id>build-extras</id>
+    <profiles>
+        <profile>
+            <id>sign</id>
 
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
+            <build>
+                <plugins>
+                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${org.apache.maven.plugins.maven-gpg-plugin.version}</version>
 
-      <build>
-        <plugins>
-          <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-            <version>${org.apache.maven.plugins.maven-source-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
 
-            <executions>
-              <execution>
-                <id>attach-sources</id>
+                                <phase>verify</phase>
 
-                <goals>
-                  <goal>jar-no-fork</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 
-          <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <version>${org.apache.maven.plugins.maven-javadoc-plugin.version}</version>
+        <profile>
+            <id>build-extras</id>
 
-            <executions>
-              <execution>
-                <id>attach-javadocs</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
 
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
+            <build>
+                <plugins>
+                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${org.apache.maven.plugins.maven-source-plugin.version}</version>
 
-  <repositories>
-    <repository>
-      <id>ossrh-snapshot</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </repository>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
 
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
 
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
+                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${org.apache.maven.plugins.maven-javadoc-plugin.version}</version>
 
-  <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
 
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <repositories>
+        <repository>
+            <id>ossrh-snapshot</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
