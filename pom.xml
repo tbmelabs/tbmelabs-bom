@@ -57,11 +57,11 @@
         </dependency>
 
         <!-- DOTO: Update on release -->
-        <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/tv/constants/ -->
+        <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/server-constants/ -->
         <dependency>
-            <groupId>ch.tbmelabs.tv</groupId>
-            <artifactId>constants</artifactId>
-            <version>${ch.tbmelabs.tv.version}</version>
+            <groupId>ch.tbmelabs</groupId>
+            <artifactId>server-constants</artifactId>
+            <version>${ch.tbmelabs.version}</version>
         </dependency>
     </dependencies>
 
