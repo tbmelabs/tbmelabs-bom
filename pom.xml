@@ -35,7 +35,7 @@
 
     <parent>
         <!-- DOTO: Update on release -->
-        <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/actuator-endpoints-security-utils/ -->
+        <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/parent/ -->
         <groupId>ch.tbmelabs</groupId>
         <artifactId>parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
