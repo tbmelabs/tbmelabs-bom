@@ -3,7 +3,6 @@
 TBME Labs specific dependency management and plugin configurations.
 
 [![Build Status](https://travis-ci.org/tbmelabs/tbmelabs-bom.svg?branch=master)](https://travis-ci.org/tbmelabs/tbmelabs-bom)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d9eae98d8d1d4915b8f56ab8e7ce8d7b)](https://www.codacy.com/app/bbortt_2/tbmelabs-bom?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tbmelabs/tbmelabs-bom&amp;utm_campaign=Badge_Grade)
 
 ## Getting Started
 
