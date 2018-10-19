@@ -4,6 +4,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>bom</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>TBME Labs | Bom</name>
@@ -34,31 +35,27 @@
     </developers>
 
     <parent>
-        <!-- DOTO: Update on release -->
-        <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/parent/ -->
+        <!-- https://oss.sonatype.org/service/local/repositories/releases/content/ch/tbmelabs/parent/ -->
         <groupId>ch.tbmelabs</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <properties>
         <!-- TBME Labs specific configuration -->
-        <ch.tbmelabs.version>1.0.0-SNAPSHOT</ch.tbmelabs.version>
-        <ch.tbmelabs.tv.version>1.0.0-SNAPSHOT</ch.tbmelabs.tv.version>
+        <ch.tbmelabs.version>1.0.0</ch.tbmelabs.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- DOTO: Update on release -->
-            <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/actuator-endpoints-security-utils/ -->
+            <!-- https://oss.sonatype.org/service/local/repositories/releases/content/ch/tbmelabs/actuator-endpoints-security-utils/ -->
             <dependency>
                 <groupId>ch.tbmelabs</groupId>
                 <artifactId>actuator-endpoints-security-utils</artifactId>
                 <version>${ch.tbmelabs.version}</version>
             </dependency>
 
-            <!-- DOTO: Update on release -->
-            <!-- https://oss.sonatype.org/content/repositories/snapshots/ch/tbmelabs/server-constants/ -->
+            <!-- https://oss.sonatype.org/service/local/repositories/releases/content/ch/tbmelabs/server-constants/ -->
             <dependency>
                 <groupId>ch.tbmelabs</groupId>
                 <artifactId>server-constants</artifactId>
